@@ -1,5 +1,5 @@
 %%%%%% INITIATION OF VARS + INPUT FILE (BEGIN) %%%%%%
-fid = fopen('input_J_A_CrI3.dat', 'r');
+fid = fopen('input_J_A_CrBr3.dat', 'r');
 data1 = fscanf(fid, '%f');
 N = data1(1);     %% number of sites/magnetic moments 
 S = 1.5;          %% magnitude of spins
