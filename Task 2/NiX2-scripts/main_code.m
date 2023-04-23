@@ -1,8 +1,7 @@
 clear
 close all
 clc
-
-P = 8; S = 1; n = linspace(1,P^2,P^2)';
+P = 8; S = 1; n = linspace(1,P^2,P^2)'; %P**2 = number of particles (8x8 system)
 
 [FirstNN,SecondNN,ThirdNN] = determine_NNs(P);
 plot_matrix(P,n,FirstNN,SecondNN,ThirdNN);  %% for visual control of nearest neighbors
@@ -84,7 +83,8 @@ X = coord(:,1);Y = coord(:,2);Z = coord(:,3);
 a = a_3xN_new';
 U = a(:,1);V = a(:,2);W = a(:,3);
 figure
-quiver3(X,Y,Z,U,V,W,0.1,'r');
+pl=quiver3(X,Y,Z,U,V,W,0.2,'r');
+pl.LineWidth=0.95;
 axis equal
 %%% plot of the last MC configuration with only arrows  end  %%%
 %%% plot of the last MC configuration with arrows + color begin %%%
@@ -99,3 +99,4 @@ axis equal
 surf(X2,Y2,W2);
 hold off
 %%% plot of the last MC configuration with arrows + color  end  %%%
+axis equal

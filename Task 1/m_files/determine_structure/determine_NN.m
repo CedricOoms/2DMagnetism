@@ -1,6 +1,6 @@
 % crystal = load('trig-400-atoms-MATLAB-POSCAR');
 % crystal = load('sqr-200-atoms-MATLAB-POSCAR');
-crystal = load('input_J_A_CrBr3.dat');
+crystal = load('8x8-NiI2.txt');
 N = crystal(1,1);   %total number of magnetic sites
 a = crystal(2:4,:); %lattice vectors
 [l,w] = size(crystal); 
