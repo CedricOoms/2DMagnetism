@@ -1,5 +1,7 @@
 %%%%%% INITIATION OF VARS + INPUT FILE (BEGIN) %%%%%%
-fid = fopen('input_J_A_CrI3.dat', 'r');
+Bsym=10;
+Mat='CrI_3';
+fid = fopen(append('input_J_A_',Mat,'.dat'), 'r');
 data1 = fscanf(fid, '%f');
 N = data1(1);     %% number of sites/magnetic moments 
 S = 1.5;          %% magnitude of spins
@@ -13,7 +15,7 @@ J_p120 = reshape(data1(29:37), 3, 3).';
 M = fill_big_matrix_M(N,A,J_0,J_m120,J_p120);
 %%%%%% FILLING THE 'BIG' MATRIX == M (END) %%%%%%
 %%%%%% VARIATION OF B (BEGIN) %%%%%%
-Bstart = -12; Bend = 12; Bstep = 0.25; 
+Bstart = -Bsym; Bend = Bsym; Bstep = 0.2; 
 Sinit = zeros(3*N,1);
 for l = 1:1:N
   Sinit(3*l-2,1) = 1e-1;
@@ -29,3 +31,8 @@ plot(hysteresis2(:,1),hysteresis2(:,2),'r-*');
 hold off
 xlim([Bstart Bend]);
 ylim([-4/3*S 4/3*S]);
+title(append('Hysteresis ',Mat));
+xlabel('Applied field (T)');
+ylabel('Measured field (T)');
+axis normal
+xlim([-Bsym,Bsym])

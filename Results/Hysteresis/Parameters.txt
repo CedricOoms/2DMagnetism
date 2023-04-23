@@ -1,0 +1,7 @@
+Cr*3_hysteresis.jpg => B=-12:0.25:+12 (was the default)
+
+Small_Bloop_*.jpg => B=-10:0.25:+10
+Large_Bloop_*.jpg => B=-100:0.25:+100
+
+Hysteresis_*_flip.jpg => B=-10:0.2:+10 (finer B-grid)
+
