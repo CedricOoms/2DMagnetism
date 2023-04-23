@@ -1,3 +1,8 @@
+function B_decreaser(Binit,Bfin)
+	Bstart=
+end
+
+Bvec=[100]
 %%%%%% INITIATION OF VARS + INPUT FILE (BEGIN) %%%%%%
 Bsym=10;
 Mat='CrI_3';
