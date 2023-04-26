@@ -1,0 +1,5 @@
+Line 1, data(1): number of magnetic moments => 8
+Line 2, data(2:10): magnitude of spins => 1.5
+Line 3, data(11,19): J_0
+Line 4, data(20,28): J_m120
+Line 5, data(29,37): J_p120
