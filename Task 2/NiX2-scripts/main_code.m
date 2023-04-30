@@ -3,7 +3,7 @@ close all
 clc
 P = 8; S = 1; n = linspace(1,P^2,P^2)'; %P**2 = number of particles (8x8 system)
 
-[FirstNN,SecondNN,ThirdNN] = determine_NNs(P);
+[FirstNN, SecondNN,ThirdNN] = determine_NNs(P);
 plot_matrix(P,n,FirstNN,SecondNN,ThirdNN);  %% for visual control of nearest neighbors
 
 isoJ1 = -7.0; isoJ2 = -0.3; isoJ3 = 5.8;

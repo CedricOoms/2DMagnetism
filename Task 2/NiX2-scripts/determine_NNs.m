@@ -1,7 +1,7 @@
 function [FirstNN,SecondNN,ThirdNN] = determine_NNs(P)
 
 n = linspace(1,P*P,P*P)';
-% FirstNN = zeros(N*N,6); SecondNN = zeros(N*N,6); ThirdNN = zeros(N*N,6);
+% FirstNN = zeecondNN = zeros(N*N,6)ros(N*N,6); S; ThirdNN = zeros(N*N,6);
 %%%%% ### 1st NN begin ### %%%%%
 FirstNN = [n+1 n-P+1 n-P n-1 n+P-1 n+P];
 % a = [FirstNN(1:N,1),FirstNN(1:N,2)+N*N,FirstNN(1:N,3)+N*N,FirstNN(1:N,4),FirstNN(1:N,5),FirstNN(1:N,6)];
