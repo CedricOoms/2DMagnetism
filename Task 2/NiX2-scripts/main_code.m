@@ -1,6 +1,10 @@
 clear
 close all
 clc
+UseFirstNN = 1;
+UseSecondNN = 0;
+UseThirdNN = 1;
+
 P = 8; S = 1; n = linspace(1,P^2,P^2)'; %P**2 = number of particles (8x8 system)
 
 [FirstNN, SecondNN,ThirdNN] = determine_NNs(P);
@@ -16,16 +20,16 @@ J1_120 = R_120'*J1_000*R_120; J1_240 = R_240'*J1_000*R_240;
 H = zeros(3*P^2,3*P^2);
 
 for k = 1:1:P^2
-    H(3*k-2:3*k,3*FirstNN(k,1)-2:3*FirstNN(k,1)) = J1_000;
-    H(3*k-2:3*k,3*FirstNN(k,4)-2:3*FirstNN(k,4)) = J1_000;
-    H(3*k-2:3*k,3*FirstNN(k,2)-2:3*FirstNN(k,2)) = J1_120;
-    H(3*k-2:3*k,3*FirstNN(k,5)-2:3*FirstNN(k,5)) = J1_120;
-    H(3*k-2:3*k,3*FirstNN(k,3)-2:3*FirstNN(k,3)) = J1_240;
-    H(3*k-2:3*k,3*FirstNN(k,6)-2:3*FirstNN(k,6)) = J1_240;
+    H(3*k-2:3*k,3*FirstNN(k,1)-2:3*FirstNN(k,1)) = UseFirstNN*J1_000;
+    H(3*k-2:3*k,3*FirstNN(k,4)-2:3*FirstNN(k,4)) = UseFirstNN*J1_000;
+    H(3*k-2:3*k,3*FirstNN(k,2)-2:3*FirstNN(k,2)) = UseFirstNN*J1_120;
+    H(3*k-2:3*k,3*FirstNN(k,5)-2:3*FirstNN(k,5)) = UseFirstNN*J1_120;
+    H(3*k-2:3*k,3*FirstNN(k,3)-2:3*FirstNN(k,3)) = UseFirstNN*J1_240;
+    H(3*k-2:3*k,3*FirstNN(k,6)-2:3*FirstNN(k,6)) = UseFirstNN*J1_240;
     
     for l = 1:1:6
-        H(3*k-2:3*k,3*SecondNN(k,l)-2:3*SecondNN(k,l)) = J2; 
-        H(3*k-2:3*k,3*ThirdNN(k,l)-2:3*ThirdNN(k,l)) = J3;
+        H(3*k-2:3*k,3*SecondNN(k,l)-2:3*SecondNN(k,l)) = UseSecondNN*J2; 
+        H(3*k-2:3*k,3*ThirdNN(k,l)-2:3*ThirdNN(k,l)) = UseThirdNN*J3;
     end
 end
 %%% create big Hamiltonian  end  %%%
