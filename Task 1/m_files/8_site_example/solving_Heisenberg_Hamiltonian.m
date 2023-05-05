@@ -1,9 +1,9 @@
 %%%%%% INITIATION OF VARS + INPUT FILE (BEGIN) %%%%%%
-fid = fopen('input_J_A_CrI_3.dat', 'r');
+fid = fopen('input_J_A_CrBr_3.dat', 'r');
 data1 = fscanf(fid, '%f');
 N = data1(1);     %% number of sites/magnetic moments 
 S = 1.5;          %% magnitude of spins
-theta = 60; phi = 0;
+theta = 60; phi = 180;
 A = reshape(data1(2:10), 3, 3).';
 J_0 = reshape(data1(11:19), 3, 3).';
 J_m120 = reshape(data1(20:28), 3, 3).';
@@ -13,7 +13,7 @@ J_p120 = reshape(data1(29:37), 3, 3).';
 M = fill_big_matrix_M(N,A,J_0,J_m120,J_p120);
 %%%%%% FILLING THE 'BIG' MATRIX == M (END) %%%%%%
 %%%%%% VARIATION OF B (BEGIN) %%%%%%
-Bstart = -12; Bend = 12; Bstep = 0.25; 
+Bstart = -5; Bend = 5; Bstep = 0.25; 
 Sinit = zeros(3*N,1);
 for l = 1:1:N
   Sinit(3*l-2,1) = 1e-1;
