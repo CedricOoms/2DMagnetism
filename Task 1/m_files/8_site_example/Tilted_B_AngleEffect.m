@@ -11,7 +11,7 @@ J_p120 = reshape(data1(29:37), 3, 3).';
 
 phi=0;
 thetaArray=[0 30 60 80 100 120 150 180];
-Bstart = -12; Bend = 12; Bstep = 0.25; 
+Bstart = -5; Bend = 5; Bstep = 0.25; 
 
 
 for theta=thetaArray
