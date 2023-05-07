@@ -8,7 +8,7 @@ UseThirdNN = 1;
 P = 8; S = 1; n = linspace(1,P^2,P^2)'; %P**2 = number of particles (8x8 system)
 
 [FirstNN, SecondNN,ThirdNN] = determine_NNs(P);
-plot_matrix(P,n,FirstNN,SecondNN,ThirdNN);  %% for visual control of nearest neighbors
+plot_matrix(P,n,UseFirstNN*FirstNN,UseSecondNN*SecondNN,UseThirdNN*ThirdNN);  %% for visual control of nearest neighbors
 
 isoJ1 = -7.0; isoJ2 = -0.3; isoJ3 = 5.8;
 xx = -1.0; yy = +1.4; zz = -0.3; yz = -1.4; %% other off-diagonal elements xz zx xy yx all 0 %%
