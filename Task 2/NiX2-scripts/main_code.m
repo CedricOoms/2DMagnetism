@@ -2,7 +2,7 @@ clear
 close all
 clc
 UseFirstNN = 1;
-UseSecondNN = 0;
+UseSecondNN = 1;
 UseThirdNN = 1;
 
 P = 8; S = 1; n = linspace(1,P^2,P^2)'; %P**2 = number of particles (8x8 system)
@@ -81,16 +81,28 @@ Fend(1,MC) = F(find(F(:,MC),1,'last'),MC);
 end
 Fbegin = Fbegin';Fend = Fend';
 
+
+a_3xN_init=reshape(a_3Nx1_init,3,P^2);
+%%% plot of the initial MC configuration with only arrows begin %%%
+coord = load('8x8-NiI2.txt');
+X = coord(:,1);Y = coord(:,2);Z = coord(:,3);
+a = a_3xN_init';
+U = a(:,1);V = a(:,2);W = a(:,3);
+figure
+quiver3(X,Y,Z,U,V,W,0.1,'r');
+axis equal
+%%% plot of the initial MC configuration with only arrows  end  %%%
+
 %%% plot of the last MC configuration with only arrows begin %%%
 coord = load('8x8-NiI2.txt');
 X = coord(:,1);Y = coord(:,2);Z = coord(:,3);
 a = a_3xN_new';
 U = a(:,1);V = a(:,2);W = a(:,3);
 figure
-pl=quiver3(X,Y,Z,U,V,W,0.2,'r');
-pl.LineWidth=0.95;
+quiver3(X,Y,Z,U,V,W,0.1,'r');
 axis equal
 %%% plot of the last MC configuration with only arrows  end  %%%
+
 %%% plot of the last MC configuration with arrows + color begin %%%
 Xr = reshape(X,P,P);Yr = reshape(Y,P,P);Wr = reshape(W,P,P);
 X2 = min(X):0.1:max(X);Y2 = min(Y):0.1:max(Y);
